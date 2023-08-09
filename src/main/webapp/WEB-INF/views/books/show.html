@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <b th:text="${book.getName()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}"></b>
+    <br>
+    <b th:text="'book id is: ' + ${book.getId()}"></b>
+    <br><br>
+    <div th:if="${not book.getIsFree()}">
+        <b th:text="${reader != null} ?
+        'this book is taken by ' + ${reader.getName()} + ' ' + ${reader.getSurname()} + ' ' + ${reader.getPatronymic()}
+        : 'this book is taken by DELETED PERSON'"></b>
+        <br>
+        <form th:method="PATCH" th:action="@{/books/{id}/release(id=${book.getId()})}">
+            <input type="submit" value="release this book">
+        </form>
+        <br>
+    </div>
+    <div th:if="${book.getIsFree()}">
+        <form th:method="PATCH" th:action="@{/books/{id}/set_reader(id=${book.getId()})}">
+            <label for="newReader">you can choose new reader </label>
+            <select id="newReader" th:object="${newReader}" th:field="*{id}">
+                <option th:each="value : ${people}" th:value="${value.getId()}"
+                        th:text="${value.getName()} + ' ' + ${value.getSurname()} + ' ' + ${value.getPatronymic()}">
+
+                </option>
+            </select>
+            <input type="submit" value="give book">
+        </form>
+        <br>
+    </div>
+    <hr>
+    <form th:method="GET" th:action="@{/books/{id}/edit(id=${book.getId()})}">
+        <input type="submit" value="edit book">
+    </form>
+    <br>
+    <form th:method="DELETE" th:action="@{/books/{id}(id=${book.getId()})}">
+        <input type="submit" value="Delete this book">
+    </form>
+</body>
+</html>

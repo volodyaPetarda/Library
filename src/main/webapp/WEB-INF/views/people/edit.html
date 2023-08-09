@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+    <form th:method="PATCH" th:action="@{/people/{id}/edit(id=${person.getId()})}" th:object="${person}">
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p style="color:red" th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+        </div>
+        <label for="name">Enter new name: </label>
+        <input id="name" th:field="*{name}" type="text">
+        <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name error</div>
+        <br>
+        <label for="surname">Enter new surname: </label>
+        <input id="surname" th:field="*{surname}" type="text">
+        <div style="color:red" th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">Surname error</div>
+        <br>
+        <label for="patronomic">Enter new patronymic: </label>
+        <input id="patronomic" th:field="*{patronymic}" type="text">
+        <div style="color:red" th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}">Patronymic error</div>
+        <br>
+        <label for="yearOfBirth">Enter new year of birth: </label>
+        <input id="yearOfBirth" th:field="*{yearOfBirth}" type="text">
+        <div style="color:red" th:if="${#fields.hasErrors('yearOfBirth')}" th:errors="*{yearOfBirth}">Year of birth error</div>
+        <br>
+        <input type="submit" value="Confirm">
+    </form>
+</body>
+</html>

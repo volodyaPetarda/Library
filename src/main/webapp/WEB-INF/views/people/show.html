@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+</head>
+<body>
+    <b>Name: </b> <i th:text="${person.getName}"></i>
+    <br>
+    <b>Surname: </b> <i th:text="${person.getSurname()}"></i>
+    <br>
+    <b>Patronymic: </b> <i th:text="${person.getPatronymic()}"></i>
+    <br>
+    <b>Year of birth:</b> <i th:text="${person.getYearOfBirth()}"></i>
+    <br>
+    <hr>
+    <div th:if="${not #lists.isEmpty(books)}">
+        <b>taken books</b>
+        <br>
+        <div th:each="book : ${books}" th:text="${book.getName()} + ', ' + ${book.getAuthor()} + ', ' + ${book.getYear()}"></div>
+    </div>
+    <div th:if="${#lists.isEmpty(books)}">
+        <b>this person doesn't have books</b>
+    </div>
+    <br>
+    <hr>
+    <form th:method="GET" th:action="@{/people/{id}/edit(id=${person.getId()})}">
+        <input type="submit" value="edit">
+    </form>
+    <br>
+    <form th:method="DELETE" th:action="@{/people/{id}(id=${person.getId()})}">
+        <input type="submit" value="delete">
+    </form>
+</body>
+</html>

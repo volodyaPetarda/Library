@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>People</title>
+</head>
+<body>
+    <form th:method="GET" th:action="@{/books}">
+        <input type="submit" value="Books">
+    </form>
+    <br>
+    <form th:method="GET" th:action="@{/people/new}">
+        <input type="submit" value="Create new person">
+    </form>
+    <hr>
+    <br>
+    <div th:each="person : ${people}">
+        <a th:href="@{/people/{id}(id=${person.getId()})}" th:text="${person.getName()} + ' ' + ${person.getSurname()} + ' ' + ${person.getPatronymic()} + ' ' + ${person.getYearOfBirth()}"></a>
+        <br>
+    </div>
+</body>
+</html>
