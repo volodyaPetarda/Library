@@ -3,15 +3,17 @@ package ru.volodya_petarda.util;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import ru.volodya_petarda.dao.BookDAO;
-import ru.volodya_petarda.model.Book;
+import ru.volodya_petarda.models.Book;
+import ru.volodya_petarda.services.BooksService;
+
+import java.util.Optional;
 
 @Component
 public class BookValidator implements Validator {
-    private final BookDAO bookDAO;
+    private final BooksService booksService;
 
-    public BookValidator(BookDAO bookDAO) {
-        this.bookDAO = bookDAO;
+    public BookValidator(BooksService booksService) {
+        this.booksService = booksService;
     }
 
     @Override
@@ -22,8 +24,8 @@ public class BookValidator implements Validator {
     @Override
     public void validate(Object target, Errors errors) {
         Book book = (Book)target;
-        Book bookFromRequest = bookDAO.findBook(book.getName(), book.getAuthor());
-        if(bookFromRequest != null && bookFromRequest.getId() != book.getId()){
+        Optional<Book> bookFromRequest = booksService.find(book.getName(), book.getAuthor());
+        if(bookFromRequest.isPresent() && bookFromRequest.get().getId() != book.getId()){
             errors.reject("504", "name+author should be unique");
         }
     }

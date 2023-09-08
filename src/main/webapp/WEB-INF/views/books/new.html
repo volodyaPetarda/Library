@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>New Book</title>
 </head>
-    <body>
+<body>
     <form th:method="POST" th:action="@{/books/new}" th:object="${book}">
         <div th:if="${#fields.hasGlobalErrors()}">
             <p style="color:red" th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>

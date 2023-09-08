@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Found books</title>
+</head>
+<body>
+    <form th:method="GET" th:action="@{/books}">
+        <input type="submit" value="Go back">
+    </form>
+    <br>
+    <b>Found books: </b>
+    <br>
+    <div th:if="${#lists.isEmpty(books)}">
+        Nothing was found :(
+    </div>
+    <div th:each="book : ${books}">
+        <div th:if="${not book.isFree}">This book is already taken: </div>
+        <div th:if="${book.getIsFree()}">This book is free: </div>
+        <a th:href="@{/books/{id}(id=${book.getId()})}" th:text="${book.getName()} +', '+ ${book.getAuthor()} +', '+ ${book.getYear()}"></a>
+    </div>
+</body>
+</html>

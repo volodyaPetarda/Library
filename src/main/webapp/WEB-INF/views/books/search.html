@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search book</title>
+</head>
+<body>
+    <form th:method="GET" th:action="@{/books/show_found}">
+        <label for="name">enter book's name: </label>
+        <input id="name" type="text" th:name="name">
+        <button type="submit">search</button>
+    </form>
+</body>
+</html>
