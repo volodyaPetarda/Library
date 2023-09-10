@@ -1,8 +1,8 @@
-package ru.volodya_petarda.repositories;
+package ru.volodya_petarda.library.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.volodya_petarda.models.Person;
+import ru.volodya_petarda.library.models.Person;
 
 import java.util.Optional;
 

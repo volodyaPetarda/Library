@@ -1,10 +1,10 @@
-package ru.volodya_petarda.util;
+package ru.volodya_petarda.library.util;
 
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
-import ru.volodya_petarda.models.Person;
-import ru.volodya_petarda.services.PeopleService;
+import ru.volodya_petarda.library.models.Person;
+import ru.volodya_petarda.library.services.PeopleService;
 
 import java.util.Optional;
 

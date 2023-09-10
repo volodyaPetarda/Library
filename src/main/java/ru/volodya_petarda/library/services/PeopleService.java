@@ -1,11 +1,11 @@
-package ru.volodya_petarda.services;
+package ru.volodya_petarda.library.services;
 
 import jakarta.transaction.Transactional;
 import org.hibernate.Hibernate;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
-import ru.volodya_petarda.models.Person;
-import ru.volodya_petarda.repositories.PeopleRepository;
+import ru.volodya_petarda.library.models.Person;
+import ru.volodya_petarda.library.repositories.PeopleRepository;
 
 import java.util.List;
 import java.util.Optional;

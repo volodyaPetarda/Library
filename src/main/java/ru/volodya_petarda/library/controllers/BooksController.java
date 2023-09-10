@@ -1,16 +1,16 @@
-package ru.volodya_petarda.controllers;
+package ru.volodya_petarda.library.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.volodya_petarda.models.Book;
-import ru.volodya_petarda.models.Person;
-import ru.volodya_petarda.services.BooksService;
-import ru.volodya_petarda.services.PeopleService;
-import ru.volodya_petarda.util.BookValidator;
+import ru.volodya_petarda.library.models.Book;
+import ru.volodya_petarda.library.models.Person;
+import ru.volodya_petarda.library.services.BooksService;
+import ru.volodya_petarda.library.services.PeopleService;
+import ru.volodya_petarda.library.util.BookValidator;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 import java.util.List;
 
 @Controller

@@ -1,8 +1,8 @@
-package ru.volodya_petarda.models;
+package ru.volodya_petarda.library.models;
 
 import jakarta.persistence.*;
 
-import javax.validation.constraints.Size;
+import jakarta.validation.constraints.Size;
 import java.util.Date;
 import java.util.Objects;
 

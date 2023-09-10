@@ -1,14 +1,14 @@
-package ru.volodya_petarda.controllers;
+package ru.volodya_petarda.library.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import ru.volodya_petarda.models.Person;
-import ru.volodya_petarda.services.PeopleService;
-import ru.volodya_petarda.util.PersonValidator;
+import ru.volodya_petarda.library.models.Person;
+import ru.volodya_petarda.library.services.PeopleService;
+import ru.volodya_petarda.library.util.PersonValidator;
 
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @Controller
 @RequestMapping("/people")

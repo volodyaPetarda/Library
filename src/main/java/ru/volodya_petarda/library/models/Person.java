@@ -1,9 +1,9 @@
-package ru.volodya_petarda.models;
+package ru.volodya_petarda.library.models;
 
 import jakarta.persistence.*;
 
-import javax.validation.constraints.Min;
-import javax.validation.constraints.Pattern;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.Pattern;
 import java.util.List;
 import java.util.Objects;
 

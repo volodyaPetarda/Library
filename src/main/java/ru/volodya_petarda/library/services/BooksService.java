@@ -1,12 +1,12 @@
-package ru.volodya_petarda.services;
+package ru.volodya_petarda.library.services;
 
 import jakarta.transaction.Transactional;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import ru.volodya_petarda.models.Book;
-import ru.volodya_petarda.models.Person;
-import ru.volodya_petarda.repositories.BooksRepository;
+import ru.volodya_petarda.library.models.Book;
+import ru.volodya_petarda.library.models.Person;
+import ru.volodya_petarda.library.repositories.BooksRepository;
 
 import java.util.Date;
 import java.util.List;
